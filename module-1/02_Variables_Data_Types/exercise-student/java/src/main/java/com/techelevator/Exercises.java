@@ -510,6 +510,7 @@ public class Exercises {
 		double percentageTravelledFraction = (trainTravelled / totalDistance) * 100;
 		int percentageTravelled = (int)percentageTravelledFraction;
 
+
 	}
 
 }
