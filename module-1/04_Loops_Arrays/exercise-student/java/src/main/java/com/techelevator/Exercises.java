@@ -193,14 +193,17 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-		boolean checkOne;
-		boolean checkTwo;
-		for ( int i = 0 ; i < nums.length ; i++){
+		boolean checkOne = false;
+		boolean checkTwo = false;
+		for ( int i = 0 ; i < nums.length - 1; i++){
 			if (nums[i] == 2){
 				checkOne = true;
 			}
-			else if ( nums[i] == 2){
+			if ( nums[i + 1] == nums[i]){
 				checkTwo =true;
+			}
+			if (checkOne && checkTwo){
+				return true;
 			}
 		}
 		return false;
