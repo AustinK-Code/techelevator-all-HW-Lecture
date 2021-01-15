@@ -7,7 +7,7 @@ public class Lecture {
     */
     public int[] returnArray() {
         int[] array = { 80, 8080, 443 };
-        return null;
+        return array;
     }
 
     /*
@@ -15,7 +15,7 @@ public class Lecture {
     */
     public int returnFirstElement() {
         int[] portNumbers = { 80, 8080, 443 };
-        return 1;
+        return portNumbers[0];
     }
 
     /*
@@ -23,14 +23,14 @@ public class Lecture {
     */
     public int returnLastElement() {
         int[] portNumbers = { 80, 8080, 443 };
-        return 1;
+        return portNumbers[2];
     }
 
     /*
     4. Return the first element of the array from the parameters
     */
     public int returnFirstElementOfParam(int[] passedInArray) {
-        return 1;
+        return passedInArray[0];
     }
 
     /*
@@ -44,6 +44,7 @@ public class Lecture {
     6. Here, a variable is defined within a block. How can we get the value of that outside of the block in order to
        return it? There are a couple of different ways of doing this, what can you come up with?
     */
+
     public int returnVariableFromBlock(int number) {
 
         { // A new block with scoped variables
@@ -52,7 +53,7 @@ public class Lecture {
 
         } // the result variable disappears here
 
-        return number; // We want to return result here. How?
+        return result; // We want to return result here. How?
     }
 
     /*
@@ -60,7 +61,7 @@ public class Lecture {
        it returns true.
     */
     public boolean returnOperationInBlock() {
-        int result = 5;
+        int result = 50;
 
         {
             int multiplier = 10;
@@ -104,7 +105,7 @@ public class Lecture {
             counter++;
         }
 
-        return counter == 1; // What should the number be to return true?
+        return counter == 4; // What should the number be to return true?
     }
 
     /*
@@ -163,6 +164,15 @@ public class Lecture {
 	 arrayCount9([1, 9, 9, 3, 9]) → 3
 	 */
     public int arrayCount9(int[] nums) {
+        int numOf9 = 0;
+        for (int i = 0; i < nums.length ; i ++){
+            if (nums[i] == 9){
+                numOf9 ++;
+            }
+         return numOf9;
+        }
+
+
         return 0;
     }
 }
