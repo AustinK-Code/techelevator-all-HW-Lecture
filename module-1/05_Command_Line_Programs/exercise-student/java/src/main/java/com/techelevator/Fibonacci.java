@@ -29,13 +29,15 @@ public class Fibonacci {
 			System.out.println(0 + ", " + 1);
 			return;
 		}
-
+		/// rebuilding array
 		for (int i = 2; i <= userInput ; i++) {
 			if (i >= 2) {
 				fibonacciArray[i] = fibonacciArray[i - 1] + fibonacciArray[i - 2];
 			}
 		}
 		System.out.print("0, ");
+		
+		//printing out the number needed from the array
 		for (int i = 1; i <= userInput ; i++) {
 			if (fibonacciArray[i] > 0 && fibonacciArray[i] <= userInput){
 				System.out.print(fibonacciArray[i] + ", ");

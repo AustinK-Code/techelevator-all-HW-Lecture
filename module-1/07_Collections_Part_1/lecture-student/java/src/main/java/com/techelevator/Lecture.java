@@ -9,69 +9,104 @@ public class Lecture {
 
 	//1. returnsAnArray(5) -> {1, 2, 3, 4, 5}
 	public int[] returnsAnArray(int number) {
-		return null;
+		int [] intAarray = new int[number];
+		for (int i = 0; i < intAarray.length; i++){
+			intAarray[i] = i +1;
+		}
+		return intAarray;
 	}
 
 	//2. returnsAList(5) -> [1, 2, 3, 4, 5]
 	public List<Integer> returnsAList(int number) {
-		return null;
+		List<Integer> integerList = new ArrayList<>();
+		for (int i = 0; i < number; i++){
+			integerList.add(i +1);
+		}
+		return integerList;
 	}
 
 	//3. returnThirdName(["Frodo","Sam","Merry","Pippin"]) -> "Merry"
 	public String returnThirdName(List<String> names) {
-		return null;
+		return names.get(2);
 	}
 
 	//4. insertAfterFirst(["Luke","Leia"], "Han") -> ["Luke", "Han", "Leia"]
 	public List<String> insertAfterFirst(List<String> names, String name) {
-		return null;
+		List<String> result = new ArrayList<>(names);//copies elements of names to result
+		result.add(1,name);
+		return result;
 	}
 
 	//5. onlyOneAnswer(["yes", "no", "maybe"]) -> false
 	//   onlyOneAnswer(["no"]) -> true
 	public boolean onlyOneAnswer(List<String> answers) {
-		return false;
+		return answers.size() == 1;
 	}
 
 	//6. removeLastNumber([1.5, 2.2, 0.9]) -> [1.5, 2.2]
 	public List<Double> removeLastNumber(List<Double> numbers) {
-		return null;
+		List<Double> result = new ArrayList<>(numbers);
+		result.remove(result.size()-1);
+		return result;
 	}
 
 	//7. hasACow(["duck","cow","chicken"]) -> true
 	//   hasACow(["turkey", "rooster"]) -> false
 	public boolean hasACow(List<String> farmAnimals) {
-		return false;
+		return farmAnimals.contains("cow");
 	}
 
 	//8. yourPlaceInLine(["customer","customer","you","customer"]) -> 3
 	public int yourPlaceInLine(List<String> allCustomers) {
-		return -1;
+		return allCustomers.indexOf("you") + 1;
 	}
 
 	//9. trimArray({"a","b","c","d"}) -> {"b","c"}
 	public String[] trimArray(String[] input) {
-		return null;
+		//convert array to list
+		List<String> copy = new ArrayList<>( Arrays.asList(input));//converts the fixed sized list to normal
+		copy.remove(0);//get rid of first
+		copy.remove(copy.size() - 1);//get rid of last
+		String[] result = copy.toArray(new String[0]);//convert list to an array
+		return result;
 	}
 
 	//10. descendingOrder([3, 4, 2, 9, 4, 8]) -> [9, 8, 4, 4, 3, 2]
 	public List<Integer> descendingOrder(List<Integer> numbers) {
-		return null;
+		List<Integer> result = new ArrayList<>(numbers);
+		Collections.sort(result);
+		Collections.reverse(result);
+		return result;
 	}
 
 	//11. countTrues([false,true,true,false,true]) -> 3
 	public int countTrues(List<Boolean> answers) {
-		return -1;
+		int count = 0;
+		for(boolean value : answers){
+			if (value){
+				count ++;
+			}
+		}
+		return count;
 	}
 
 	//12. incrementAll([100, 17, 33]) -> [101, 18, 34]
 	public List<Integer> incrementAll(List<Integer> numbers) {
-		return null;
+		List<Integer>result = new ArrayList<>();
+		for (int value : numbers){
+			numbers.add(value + 1);
+		}
+	return result;
 	}
 
 	//13. echo(["Tech","Elevator"]) -> ["Tech","Tech","Elevator","Elevator"]
 	public List<String> echo(List<String> words) {
-		return null;
+		List<String> result = new ArrayList<>();
+		for (String value : words){
+			result.add(value);
+			result.add(value);
+		}
+		return result;
 	}
 
 }

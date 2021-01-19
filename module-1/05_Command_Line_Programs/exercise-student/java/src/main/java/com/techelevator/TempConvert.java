@@ -27,11 +27,11 @@ public class TempConvert {
 		double tempFahrenheit;
 		if (!cTrue){
 			tempCelsius = (inputTempInt - 32) / 1.8;
-			System.out.println(startingTempAndType + " is " + tempCelsius +"C");
+			System.out.format("%.2f is %.2C\n",startingTempAndType ,tempCelsius);
 		}
 		 if (cTrue){
 			tempFahrenheit = (inputTempInt * 1.8 + 32);
-			System.out.print(startingTempAndType + " is " + tempFahrenheit + "F");
+			System.out.format("%.2f is %.2F\n", startingTempAndType , tempFahrenheit);
 		}
 
 

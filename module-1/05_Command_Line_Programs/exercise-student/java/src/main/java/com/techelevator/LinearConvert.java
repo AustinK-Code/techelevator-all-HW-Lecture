@@ -27,12 +27,12 @@ public class LinearConvert {
 		if (metersIsTrue){
 			finalDistanceInFeet = lengthInputDouble * 3.2808399;
 			//output starting distance and finishing distance
-			System.out.println(lengthInputDouble + "m is " + finalDistanceInFeet + "f");
+			System.out.format("%.2f meters is %.2f feet \n", lengthInputDouble , finalDistanceInFeet);
 		}
 		if (!metersIsTrue){
 			finalDistanceInMeters = lengthInputDouble * 0.3048;
 			//output starting distance and finishing distance
-			System.out.println(lengthInputDouble + "f is " + finalDistanceInMeters + "m");
+			System.out.format("%.2f feet is %.2f meters \n", lengthInputDouble, finalDistanceInMeters );
 		}
 
 	}
