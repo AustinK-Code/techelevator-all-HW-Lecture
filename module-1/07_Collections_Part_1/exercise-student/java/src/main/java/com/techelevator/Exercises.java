@@ -1,6 +1,8 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -16,8 +18,8 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
-	}
+		List<String> toString = new ArrayList<>(Arrays.asList(stringArray));
+		return toString;}
 
 	/*
 	 Given a list of Strings, return an array containing the same Strings in the same order
@@ -26,7 +28,8 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] toArraylist = stringList.toArray(new String[0]);
+		return toArraylist;
 	}
 
 	/*
@@ -37,7 +40,9 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> toStringArray = new ArrayList<>(Arrays.asList(stringArray));
+		toStringArray.removeIf(value -> value.length() == 4);
+				return toStringArray;
 	}
 
 	/*
@@ -47,7 +52,12 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> result = new ArrayList<>();//new List to dump doubles in
+		for (int value : intArray){//goes through the array
+			Double doubleValue = (double) value;//turns in to double
+			result.add(doubleValue/2);
+		}
+		return result;
 	}
 
 	/*
@@ -57,7 +67,9 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		List<Integer> result = new ArrayList<>(integerList);
+		Collections.sort(result);
+		return result.get(result.size()-1);
 	}
 
 	/*
@@ -67,7 +79,14 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> tempArray= new ArrayList<>(Arrays.asList(integerArray));
+		List<Integer> result = new ArrayList<>();
+		for (int value : tempArray){
+			if (value%2 != 0){
+				result.add(value);
+			}
+		}
+		return result;
 	}
 
 	/*
@@ -78,7 +97,18 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		return false;
+		List<Integer>searchArray = new ArrayList<>(integerList);
+		int count = 0;
+		boolean tOrf = false;
+		for (int value : searchArray)
+		if (value == intToFind){
+			count ++;
+		}
+		if (count >= 2){
+			tOrf = true;
+		}
+
+		return tOrf;
 	}
 
 	/*
@@ -95,7 +125,25 @@ public class Exercises {
 	 equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<Integer>workListInteger = new ArrayList<>(Arrays.asList(integerArray));
+		List<String>workList = new ArrayList<>();
+		int count = 0;
+		String insert = "";
+		for (int value : workListInteger){
+			insert = workListInteger.toString();
+			workList.add(count,insert);
+			if(value%3 == 0){
+				workList.set(count,"Fizz");
+			}
+			if(value%5 ==0){
+				workList.set(count,"Buzz");
+			}
+			if(value%5 == 0 && value % 3 == 0){
+				workList.set(count,"FizzBuzz");
+			}
+			count ++;
+		}
+		return workList;
 	}
 
 	/*
@@ -106,7 +154,18 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer>result = new ArrayList<>();
+		int count = 0;
+			for (int value : listOne){
+				result.add(value);
+				result.add(listTwo.get(count));
+				count ++;
+				if (result.size() == listOne.size() || result.size() == listTwo.size()){
+					
+				}
+			}
+
+
 	}
 
 }

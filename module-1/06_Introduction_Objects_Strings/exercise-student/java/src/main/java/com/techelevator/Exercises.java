@@ -271,6 +271,7 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
+
 		return str.repeat(n);
 	}
 
@@ -400,7 +401,7 @@ public class Exercises {
 		}
 		else
 			result = str.replace("x","");
-		return result;}
+		return result;}//Im sorry for this
 
 
 
