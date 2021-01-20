@@ -97,18 +97,19 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		List<Integer>searchArray = new ArrayList<>(integerList);
+		List<Integer> searchArray = new ArrayList<>(integerList);
 		int count = 0;
 		boolean tOrf = false;
-		for (int value : searchArray)
-		if (value == intToFind){
-			count ++;
-		}
-		if (count >= 2){
-			tOrf = true;
-		}
+		for (int value : searchArray) {
+			if (value == intToFind) {
+				count++;
+			}
+			if (count >= 2) {
+				tOrf = true;
+			}
 
-		return tOrf;
+		}return tOrf;
+
 	}
 
 	/*
@@ -130,8 +131,8 @@ public class Exercises {
 		int count = 0;
 		String insert = "";
 		for (int value : workListInteger){
-			insert = workListInteger.toString();
-			workList.add(count,insert);
+			insert = String.valueOf(workListInteger.get(count));
+			workList.add(insert);
 			if(value%3 == 0){
 				workList.set(count,"Fizz");
 			}
@@ -158,13 +159,17 @@ public class Exercises {
 		int count = 0;
 			for (int value : listOne){
 				result.add(value);
+				if (listTwo.size() > count){
 				result.add(listTwo.get(count));
-				count ++;
-				if (result.size() == listOne.size() || result.size() == listTwo.size()){
-					
 				}
+				count ++;
 			}
-
+				if (listTwo.size() > listOne.size()){
+					for (int i = count; i <= listTwo.size()-1; i++){
+						result.add(listTwo.get( i));
+					}
+				}
+			return result;
 
 	}
 
