@@ -265,7 +265,21 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+		Map<String,Integer> finalInventory = new HashMap<>();
+		for (String key : mainWarehouse.keySet()){// finds and adds all matching value and mainWarehouse values.
+			String inputKey = key; //gets the input key for each in mainwarehouse
+			int value = mainWarehouse.get(key);//gets the value for each key in mainWarehouse
+			if (remoteWarehouse.containsKey(key)){
+				value = remoteWarehouse.get(key) + value;
+			}
+			finalInventory.put(inputKey,value);
+		}
+		for (String key : remoteWarehouse.keySet()){
+			if (!finalInventory.containsKey(key)){
+				finalInventory.put(key,remoteWarehouse.get(key));
+			}
+		}
+		   return finalInventory;
 	}
 
 	/*
@@ -284,7 +298,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String,Integer> resultMap = new HashMap<>();
+		for (String word : words){
+			int last2Count = 0;
+			String last2 = word.substring(word.length()-2);
+
+			for (int i = 0 ; i <word.length()-1; i++){
+				if (word.substring(i, i + 2).equals(last2)){
+					last2Count ++;
+				}
+			}
+			if (last2Count > 0){
+				last2Count --;
+			}
+
+			resultMap.put(word,last2Count);
+		}
+		return resultMap;
 	}
 
 }
