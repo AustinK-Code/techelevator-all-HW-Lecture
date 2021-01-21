@@ -162,8 +162,10 @@ public class Exercises {
 				if (listTwo.size() > count){
 				result.add(listTwo.get(count));
 				}
+
 				count ++;
 			}
+
 				if (listTwo.size() > listOne.size()){
 					for (int i = count; i <= listTwo.size()-1; i++){
 						result.add(listTwo.get( i));
