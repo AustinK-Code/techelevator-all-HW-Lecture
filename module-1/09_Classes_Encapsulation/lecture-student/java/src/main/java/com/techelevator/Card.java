@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Card {
 
-    private final  String suit;//makes it so it can be set once but that is it
+    private final  String suit;//final makes it so it can be set once but that is it
     private final String rank;
     private boolean faceUp;
 
@@ -23,6 +23,7 @@ public class Card {
         return faceUp;
     }
     public void setFaceUp(boolean faceUp){
+
         this.faceUp = faceUp;
     }
     public String getDescription(){// derived property, does not need to be called above
