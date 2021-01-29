@@ -5,21 +5,13 @@ import java.util.Map;
 
 public class Card {
 
-    private final Suit suit;
+    private final String suit;
     private final String rank;
     private boolean faceUp;
 
-    public Card() {
-        suit = Suit.SPADES;
-        rank = "Ace";
-    }
+    public static String shape = "Rectangle";
 
-    public Card(String rank, Suit suit) {
-        this.rank = rank;
-        this.suit = suit;
-    }
-
-    public Suit getSuit() {
+    public String getSuit() {
         return suit;
     }
 
@@ -66,17 +58,25 @@ public class Card {
         return getValueForRank(this.rank);
     }
 
-    public void flip() {
-        faceUp = !faceUp;
+    public Card() {
+        suit = "Spades";
+        rank = "Ace";
     }
 
-    public double getHalfValue(){
-        return getValueForRank(this.rank) / 2.0;
+    public Card(String rank, String suit) {
+        this.rank = rank;
+        this.suit = suit;
+    }
+
+    public void flip() {
+        faceUp = !faceUp;
     }
 
     public boolean isHigherThan(Card otherCard) {
         return this.getValue() > otherCard.getValue();
     }
+
+
 
 
 }

@@ -18,9 +18,9 @@ public class TriangleWallTest {
     @BeforeClass
     public static void setup() {
         try {
-            triangle = Class.forName("com.techelevator.TriangleWall");
+            triangle = Class.forName("com.techelevator.Wall$TriangleWall");
         } catch (ClassNotFoundException e) {
-            fail("com.techelevator.TriangleWall class not found");
+            fail("com.techelevator.Wall.TriangleWall class not found");
         }
     }
 
