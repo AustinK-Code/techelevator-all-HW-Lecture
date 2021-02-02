@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -207,4 +208,25 @@ public class WordSearchTests {
         Matcher m = p.matcher(line);
         return m.find();
     }
+    @Test
+    public void testForFailureInFindingFileNotCaseSensitive(){
+        Features sut = new Features();
+
+        sut.setIsCaseSensitive("Y");
+        sut.setNameOfFile("testtest.txt");
+        sut.setRequestedSearchWord("bat");
+
+        Assert.assertEquals("Could not search file", sut.scanDocCaseSensitive());
+    }
+    @Test
+    public void testForFailureInFindingFile(){
+        Features sut = new Features();
+
+        sut.setIsCaseSensitive("Y");
+        sut.setNameOfFile("testtest.txt");
+        sut.setRequestedSearchWord("bat");
+
+        Assert.assertEquals("Could not search file", sut.scanDocCaseSensitive());
+    }
+
 }
