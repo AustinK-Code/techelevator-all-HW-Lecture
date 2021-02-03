@@ -13,10 +13,10 @@ public class Examples {
     public static void main(String[] args) {
     	Examples examples = new Examples();
 
-		//examples.inspectFilesystem();
+    	//examples.inspectFilesystem();
 		//examples.createDirectory();
 		//examples.createOrReplaceFile();
-		//examples.addToFile();
+		examples.addToFile();
 	}
 	
 	private String promptForString(String prompt) {
@@ -76,13 +76,9 @@ public class Examples {
 	private void addToFile() {
 		String target = promptForString("Enter the path of the file to be added to: ");
 		String content = promptForString("Enter additional content for the file: ");
-
-		try {
-			FileOutputStream stream = new FileOutputStream(target, true);
-			PrintWriter writer = new PrintWriter(stream);
+		try (FileOutputStream stream = new FileOutputStream(target, true);
+			 PrintWriter writer = new PrintWriter(stream)){
 			writer.println(content);
-			writer.close();
-			stream.close();
 			System.out.println("File has been added to.");
 		} catch (IOException e) {
 			System.out.println("Couldn't append to file.");
