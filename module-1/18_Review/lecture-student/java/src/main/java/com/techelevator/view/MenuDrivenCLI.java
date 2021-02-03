@@ -20,4 +20,8 @@ public class MenuDrivenCLI {
     public String promptForSelection(String[] options) {
         return (String) menu.getChoiceFromOptions(options);
     }
+    public String promptForString(String prompt){
+        System.out.println(prompt);
+        return userInput.nextLine();
+    }
 }

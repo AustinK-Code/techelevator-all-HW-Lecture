@@ -56,6 +56,7 @@ public class SplitterUtil {
             inputFileLineCount = 0;
             while (scanner.hasNextLine()) {
                 inputFileLineCount++;
+                scanner.nextLine();
             }
         } catch (IOException e) {
             System.out.println("Input file could not be accessed");
@@ -68,6 +69,9 @@ public class SplitterUtil {
         numOfOutputFiles = inputFileLineCount / linesToSplit + ((inputFileLineCount % linesToSplit == 0) ? 0 : 1);
         return numOfOutputFiles;
     }
+    private String makeInputFileName(){
+        return inputFile.substring(0,inputFile.indexOf("."));
+    }
 
 
     public void generateOutput() {
@@ -77,12 +81,14 @@ public class SplitterUtil {
         try (Scanner scanner = new Scanner(filePath)) {
 
             for (int i = 1; i <= numOfOutputFiles; i++) {
-
-                String filename = (numOfOutputFiles + " ./input-" + i + ".txt");
+                //makes filename
+                String filename = ( makeInputFileName() + "-" +i + ".txt");
 
                 try (PrintWriter writer = new PrintWriter(filename)) {
-                    for (int s = 1; s <= linesToSplit; s++) {
+                    for (int s = 1; s <= linesToSplit && scanner.hasNextLine(); s++) {
                         writer.println(scanner.nextLine());
+                        System.out.println("Generating " + filename);
+
                     }
 
                 } catch (FileNotFoundException e) {

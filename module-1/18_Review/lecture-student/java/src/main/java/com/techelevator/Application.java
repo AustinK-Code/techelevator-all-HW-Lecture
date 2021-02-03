@@ -13,7 +13,9 @@ import java.util.List;
 public class Application {
 	private static final String MENU_OPTION_LIST_INDEXED_FILES = "List files to be searched";
 	private static final String MENU_OPTION_PERFORM_SAMPLE_SEARCH = "Do a sample search";
-	private static final String[] MAIN_MENU_OPTIONS = {MENU_OPTION_LIST_INDEXED_FILES, MENU_OPTION_PERFORM_SAMPLE_SEARCH};
+	private static final String MENU_OPTION_PERFORM_SEARCH = "Do a search for a word or phrase";
+	private static final String MENU_OPTION_QUIT = "QUIT THE PROGRAM";
+	private static final String[] MAIN_MENU_OPTIONS = {MENU_OPTION_LIST_INDEXED_FILES, MENU_OPTION_PERFORM_SAMPLE_SEARCH, MENU_OPTION_PERFORM_SEARCH, MENU_OPTION_QUIT};
 
 	private static final String MENU_OPTION_SAMPLE_SEARCH_1 = "Search for 'squirrel'";
 	private static final String MENU_OPTION_SAMPLE_SEARCH_2 = "Search for 'telephone line'";
@@ -38,12 +40,20 @@ public class Application {
 		TELog.log("Search application started");
 		prepareDomainAndEngine();
 
-		while (true) {
+		boolean running = true;
+		while (running) {
 			String selection = ui.promptForSelection(MAIN_MENU_OPTIONS);
 			if (selection.equals(MENU_OPTION_LIST_INDEXED_FILES)) {
 				displayIndexedFiles();
 			} else if (selection.equals(MENU_OPTION_PERFORM_SAMPLE_SEARCH)) {
 				handleSearchMenu();
+			}
+				else if (selection.equals(MENU_OPTION_PERFORM_SEARCH)){
+					String text = ui.promptForString("What would you like to search for? ");
+					performSearch(text);
+				}
+			 else if (selection.equals(MENU_OPTION_QUIT)){
+				running = false;
 			}
 		}
 	}
@@ -75,7 +85,8 @@ public class Application {
 		} else if (selection.equals(MENU_OPTION_SAMPLE_SEARCH_2)) {
 			performSearch("telephone line");
 		}
-	}
+		}
+
 
 	private void performSearch(String searchText) {
 		List<String> filenames = searchEngine.search(searchText);
