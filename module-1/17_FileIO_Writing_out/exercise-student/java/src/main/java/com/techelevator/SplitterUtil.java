@@ -44,7 +44,6 @@ public class SplitterUtil {
         return linesToSplit;
     }
 
-
     public void setNumOfOutputFiles(int numOfOutputFiles) {
         this.numOfOutputFiles = numOfOutputFiles;
     }
@@ -69,8 +68,9 @@ public class SplitterUtil {
         numOfOutputFiles = inputFileLineCount / linesToSplit + ((inputFileLineCount % linesToSplit == 0) ? 0 : 1);
         return numOfOutputFiles;
     }
-    private String makeInputFileName(){
-        return inputFile.substring(0,inputFile.indexOf("."));
+
+    private String makeInputFileName() {
+        return inputFile.substring(0, inputFile.indexOf("."));
     }
 
 
@@ -82,15 +82,13 @@ public class SplitterUtil {
 
             for (int i = 1; i <= numOfOutputFiles; i++) {
                 //makes filename
-                String filename = ( makeInputFileName() + "-" +i + ".txt");
+                String filename = (makeInputFileName() + "-" + i + ".txt");
 
                 try (PrintWriter writer = new PrintWriter(filename)) {
                     for (int s = 1; s <= linesToSplit && scanner.hasNextLine(); s++) {
                         writer.println(scanner.nextLine());
                         System.out.println("Generating " + filename);
-
                     }
-
                 } catch (FileNotFoundException e) {
                     System.out.println("Could not make output file");
                 }

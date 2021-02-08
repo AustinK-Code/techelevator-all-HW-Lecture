@@ -7,3 +7,4 @@ public class NameFormatException extends Exception {
         return "Didn't have sufficient info to create a formatted name.";
     }
 }
+{}
