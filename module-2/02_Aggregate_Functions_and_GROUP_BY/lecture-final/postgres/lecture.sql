@@ -59,11 +59,7 @@ LIMIT 10 --how many rows to return
 OFFSET 10; --start at row 10 for my results
 
 --what is the biggest city by population?
-SELECT name, population
-FROM city
-WHERE population IS NOT NULL
-ORDER BY population DESC
-LIMIT 1;
+webview-panel:webview-panel/webview-a4f8ff3e-5c5e-4e9e-816b-a7df5737e45b
 
 -- CONCATENATING OUTPUTS
 
