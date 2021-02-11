@@ -2,11 +2,26 @@
 -- The following changes are applied to the "dvdstore" database.**
 
 -- 1. Add actors, Hampton Avenue, and Lisa Byway to the actor table.
+INSERT INTO countrylanguage(countrycode, language, isOfficial,percentage)
+VALUES ('USA', 'Klingon', false, 5);
 
+SELECT *
+from countrylanguage
+where countrycode = 'USA';
 -- 2. Add "Euclidean PI", "The epic story of Euclid as a pizza delivery boy in
 -- ancient Greece", to the film table. The movie was released in 2008 in English.
 -- Since its an epic, the run length is 3hrs and 18mins. There are no special
 -- features, the film speaks for itself, and doesn't need any gimmicks.
+INSERT INTO countrylanguage(countrycode, language, isOfficial,percentage)
+VALUES ('GBR', 'Klingon', false, 5);
+
+SELECT *
+from countrylanguage
+where countrycode = 'GBR';
+--UPDATE
+--UPDATE teble_name
+--SET column = value
+--WHERE column = value
 
 -- 3. Hampton Avenue plays Euclid, while Lisa Byway plays his slightly
 -- overprotective mother, in the film, "Euclidean PI". Add them to the film.

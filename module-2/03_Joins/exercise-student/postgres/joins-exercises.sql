@@ -82,7 +82,7 @@ INNER JOIN film_category ON film.film_id = film_category.film_id
 INNER JOIN category ON film_category.category_id = category.category_id
 WHERE actor.first_name ILIKE 'nick'
 AND actor.last_name ILIKE 'stallone'
-AND category.name ILIKE 'action'
+AND category.name ILIKE 'action';
 
 -- 11. The address of all stores, including street address, city, district, and country
 -- (2 rows)
@@ -90,7 +90,7 @@ SELECT address, city, district, country
 FROM store
 INNER JOIN address ON store.address_id = address.address_id
 INNER JOIN city ON city.city_id = address.city_id
-INNER JOIN country ON city.country_id = country.country_id
+INNER JOIN country ON city.country_id = country.country_id;
 
 -- 12. A list of all stores by ID, the storeâ€™s street address, and the name of the storeâ€™s manager
 -- (2 rows)
@@ -98,11 +98,16 @@ SELECT store_id, address, first_name || ' ' || last_name AS manager_name
 FROM store
 INNER JOIN address ON store.address_id = address.address_id
 INNER JOIN staff ON store.store_id = store_id
-WHERE manager_staff_id = staff_id
+WHERE manager_staff_id = staff_id;
 
 -- 13. The first and last name of the top ten customers ranked by number of rentals
 -- (#1 should be â€œELEANOR HUNTâ€? with 46 rentals, #10 should have 39 rentals)
-
+SELECT (customer.first_name|| ' ' ||customer.last_name) AS name, COUNT(rental_id) AS rentals
+FROM customer
+INNER JOIN rental ON customer.customer_id = rental.customer_id
+GROUP BY name
+ORDER BY rentals DESC
+LIMIT 10;
 -- 14. The first and last name of the top ten customers ranked by dollars spent
 -- (#1 should be â€œKARL SEALâ€? with 221.55 spent, #10 should be â€œANA BRADLEYâ€? with 174.66 spent)
 
@@ -121,6 +126,9 @@ WHERE manager_staff_id = staff_id
 
 -- 19. The top 10 actors ranked by number of rentals of films starring that actor
 -- (#1 should be â€œGINA DEGENERESâ€? with 753 rentals and #10 should be â€œSEAN GUINESSâ€? with 599 rentals)
-
+SELECT first_name, last_name,COUNT(*)
+FROM actor
+GROUP BY first_name, last_name
+HAVING COUNT(*)>1
 -- 20. The top 5 â€œComedyâ€? actors ranked by number of rentals of films in the â€œComedyâ€? category starring that actor
 -- (#1 should have 87 rentals and #5 should have 72 rentals)
