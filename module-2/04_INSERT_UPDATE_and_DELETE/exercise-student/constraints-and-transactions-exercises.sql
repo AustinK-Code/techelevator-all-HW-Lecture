@@ -68,9 +68,8 @@ WHERE category_id = 17;
 -- 7. Add a copy of "Euclidean PI" to all the stores.
 
 INSERT INTO inventory(film_id,store_id)
-VALUES ((SELECT film_id FROM film WHERE title = 'EUCLIDEAN PI'),1);
-INSERT INTO inventory(film_id,store_id)
-VALUES ((SELECT film_id FROM film WHERE title = 'EUCLIDEAN PI'),2);
+VALUES ((SELECT film_id FROM film WHERE title = 'EUCLIDEAN PI'),1),((SELECT film_id FROM film WHERE title = 'EUCLIDEAN PI'),2);
+
 
 /*FROM inventory
 WHERE film_id = 1001
@@ -93,7 +92,7 @@ FROM category
 WHERE name = 'Mathmagical';
 -- 10. Delete all links to Mathmagical in the film_category tale.
 -- (Did it succeed? Why?)
--- <YES, BECAUSE POSTGRES LET ME>
+-- <YES, Because they are foreign keys being deleted>
 DELETE 
 FROM film_category
 WHERE category_id IN (SELECT category_id FROM category WHERE name = 'Mathmagical');
@@ -110,3 +109,5 @@ WHERE title = 'EUCLIDEAN PI';
 -- 12. Check database metadata to determine all constraints of the film id, and
 -- describe any remaining adjustments needed before the film "Euclidean PI" can
 -- be removed from the film table.
+--<<You would have to delete all foreign keys connected to Euclidean PI. That would be language_id and original_language_id in FILM. You would also need to delete film_id and actor_id in 
+--film_actor>>
