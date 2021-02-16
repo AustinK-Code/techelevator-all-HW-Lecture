@@ -1,5 +1,6 @@
 
 --CREATE DATABASE database_name
+CREATE DATABASE invoice
 
 --DROP DATABASE IF EXISTS artgallery; Can't run this while connected to artgallery connection
 --CREATE DATABASE artgallery;
