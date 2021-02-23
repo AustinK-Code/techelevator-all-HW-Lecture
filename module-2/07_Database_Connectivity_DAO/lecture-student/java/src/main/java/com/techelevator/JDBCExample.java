@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
-public class JDBCExample {
+public class                 JDBCExample {
 
 	public static void main(String[] args) throws SQLException {
 		

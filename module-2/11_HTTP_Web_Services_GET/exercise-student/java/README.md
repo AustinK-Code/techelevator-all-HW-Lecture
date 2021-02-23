@@ -50,9 +50,9 @@ There's a class provided in `/src/main/java/com/techelevator/auction/Auction.jav
 
 ### Provided Code
 
-In `App.java`, you'll find three methods that print information to the console:
+In `ConsoleServices`, you'll find three methods that print information to the console:
 
-- `printGreeting()`: Prints menu options and routes to methods for each option
+- `pringMainMenu()`: Prints menu options and routes to methods for each option
 - `printAuctions()`: Prints a list of auctions
 - `printAuction()`: Prints a single auction
 
@@ -86,7 +86,7 @@ public class App {
 ```
 
 ### 1. List all auctions
-
+#########################################################################################################################
 In the `listAllAuctions()` method, find the comment `//api code here`. Add code here to:
 
 - Use the RestTemplate to request all auctions and save them into an array of Auctions

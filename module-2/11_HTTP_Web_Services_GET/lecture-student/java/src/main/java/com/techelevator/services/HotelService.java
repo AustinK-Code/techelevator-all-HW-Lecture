@@ -15,19 +15,20 @@ public class HotelService {
     }
 
     public Hotel[] listHotels() {
-        return null;
+        //call api to get list of hotels, get for object(path to resource/api call, what i get back )
+        return restTemplate.getForObject(API_BASE_URL + "hotels", Hotel[].class);
     }
 
     public Review[] listReviews() {
-        return null;
+        return restTemplate.getForObject(API_BASE_URL + "reviews",Review[].class);
     }
 
     public Hotel getHotelById(int id) {
-        return null;
-    }
+    return null;}
 
     public Review[] getReviewsByHotelId(int hotelID) {
-        return null;
+
+        return restTemplate.getForObject(API_BASE_URL + "hotels/"+ hotelID + "/reviews",Review[].class);
     }
 
     public Hotel[] getHotelsByStarRating(int stars) {

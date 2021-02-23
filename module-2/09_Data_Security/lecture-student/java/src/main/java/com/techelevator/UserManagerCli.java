@@ -20,7 +20,7 @@ public class UserManagerCli {
 
     public static void main(String[] args) {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/user-manager");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/user_manager");
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres1");
 

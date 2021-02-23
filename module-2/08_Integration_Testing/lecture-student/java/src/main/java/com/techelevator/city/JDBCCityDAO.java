@@ -63,9 +63,10 @@ public class JDBCCityDAO implements CityDAO {
 	}
 
 	@Override
-	public void update(City city) {
-		String sql = "UPDATE city set name = ?, countrycode = ?, district = ?, population = ? WHERE id = ?";
-		jdbcTemplate.update(sql,city.getName(),city.getCountryCode(),city.getDistrict(),city.getPopulation(),city.getId());
+	public City update(City city) {
+		//String sql = "UPDATE city set name = ?, countrycode = ?, district = ?, population = ? WHERE id = ?";
+		//jdbcTemplate.update(sql,city.getName(),city.getCountryCode(),city.getDistrict(),city.getPopulation(),city.getId());
+		return city;
 	}
 
 	@Override

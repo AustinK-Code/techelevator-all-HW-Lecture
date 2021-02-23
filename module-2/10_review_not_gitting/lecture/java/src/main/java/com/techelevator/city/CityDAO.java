@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CityDAO {
 
-	public void save(City newCity);
+	public void create(City newCity);
 
 	public City findCityById(long id);
 
