@@ -1,5 +1,6 @@
 package com.techelevator.hotels.services;
 
+import com.sun.net.httpserver.Headers;
 import com.techelevator.hotels.models.Hotel;
 import com.techelevator.hotels.models.Reservation;
 import org.springframework.http.HttpEntity;
@@ -28,8 +29,17 @@ public class HotelService {
    * @return Reservation
    */
   public Reservation addReservation(String newReservation) {
-    // TODO: Implement method
-    return null;
+    Reservation reservation = makeReservation(newReservation);
+    if (reservation == null){
+      return null;
+    }
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+
+    HttpEntity<Reservation> entity = new HttpEntity<>(reservation,headers);
+
+    reservation = restTemplate.postForObject(BASE_URL+"hotels/"+reservation.getHotelID()+"/reservations",entity,Reservation.class );
+    return reservation;
   }
 
   /**
@@ -40,8 +50,17 @@ public class HotelService {
    * @return
    */
   public Reservation updateReservation(String CSV) {
-    // TODO: Implement method
-    return null;
+Reservation reservation = makeReservation(CSV);
+if (reservation==null){
+  return null;
+}
+HttpHeaders headers = new HttpHeaders();
+headers.setContentType(MediaType.APPLICATION_JSON);
+HttpEntity<Reservation> entity = new HttpEntity<>(reservation,headers);
+
+try{
+  restTemplate.put(BASE_URL+"reservations/"+reservation.getId(),entity);
+}
   }
 
   /**
