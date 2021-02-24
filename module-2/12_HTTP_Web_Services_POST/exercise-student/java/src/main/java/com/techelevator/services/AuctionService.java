@@ -106,8 +106,7 @@ public class AuctionService {
             restTemplate.delete(API_URL + "/" + id);
             isTrue = true;
         }catch (RestClientResponseException | ResourceAccessException ex){
-            isTrue=false;
-    }
+        }
         return isTrue;
     }
 

@@ -18,6 +18,7 @@ public class MemoryAuctionDAO implements AuctionDAO {
 
     @Override
     public List<Auction> list() {
+
         return auctions;
     }
 
