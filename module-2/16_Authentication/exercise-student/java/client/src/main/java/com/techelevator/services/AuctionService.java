@@ -5,9 +5,11 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
+
 
 public class AuctionService {
 
@@ -20,9 +22,11 @@ public class AuctionService {
         BASE_URL = url;
     }
 
+
     public Auction[] getAll() throws AuctionServiceException {
         Auction[] auctions = null;
         try {
+            auctions = restTemplate.exchange(BASE_URL+"auctions",HttpMethod.GET,makeAuthEntity(),Auction[].class).getBody();
             // send request here
         } catch (RestClientResponseException ex) {
             throw new AuctionServiceException(ex.getRawStatusCode() + " : " + ex.getResponseBodyAsString());
