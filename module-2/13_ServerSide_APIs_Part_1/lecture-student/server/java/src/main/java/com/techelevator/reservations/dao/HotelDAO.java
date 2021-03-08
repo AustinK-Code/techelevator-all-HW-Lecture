@@ -12,4 +12,8 @@ public interface HotelDAO {
 
     Hotel get(int id);
 
+
+    List<Hotel> filterByCity(String city);
+
+    List<Hotel> filterByState(String state);
 }

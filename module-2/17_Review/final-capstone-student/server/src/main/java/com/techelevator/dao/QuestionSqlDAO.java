@@ -5,6 +5,9 @@ import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,14 @@ public class QuestionSqlDAO implements  QuestionDAO{
         }
 
         return list;
+    }
+    @Override
+    public Question createQuestion(Question q){
+        String sql = "INSERT into questions(title,question) VALUES(?,?) RETURNING question_id";
+        long id;
+        id = jdbcTemplate.queryForObject(sql,Long.class,q.getTitle(),q.getQuestion());
+        q.setId(id);
+        return q;
     }
 
     @Override
@@ -61,6 +72,15 @@ public class QuestionSqlDAO implements  QuestionDAO{
         return count==1; //we should update exactly one
     }
 
+    @Override
+    public List<Question> filter(String title, String question) {
+        String sql = "select title, question_id,question from questions where ";
+        if ( title != null && !title.isEmpty()){
+            sql = "title ILIKE ?";
+            boolean titleSearch = true;
+        }
+    }
+
     private Question mapRowToQuestion(SqlRowSet results) {
         Question q = new Question();
         q.setTitle(results.getString("title"));
@@ -68,4 +88,5 @@ public class QuestionSqlDAO implements  QuestionDAO{
         q.setQuestion(results.getString("question"));
         return q;
     }
+
 }

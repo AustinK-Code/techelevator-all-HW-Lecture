@@ -9,6 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.models.Auction;
 
+import java.awt.*;
+
 public class AuctionService {
 
     public static final String API_URL = "http://localhost:3000/auctions";
@@ -65,18 +67,47 @@ public class AuctionService {
     }
 
     public Auction add(String auctionString) {
-        // place code here
-        return null;
+        Auction auction = makeAuction(auctionString);
+        if (auction==null){
+            return null;
+        }
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Auction> entity = new HttpEntity<>(auction,headers);
+
+        try{
+            auction = restTemplate.postForObject(API_URL,entity,Auction.class);
+        }catch (RestClientResponseException | ResourceAccessException ex){
+            return null;
+        }
+        return auction;
     }
 
     public Auction update(String auctionString) {
-        // place code here
-        return null;
+        Auction auction = makeAuction(auctionString);
+        if(auction==null){
+            return null;
+        }
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(auction,headers);
+        try{
+            restTemplate.put(API_URL+"/"+auction.getId(),entity);
+        }catch (RestClientResponseException | ResourceAccessException ex){
+            return null;
+        }
+        return auction;
     }
 
     public boolean delete(int id) throws RestClientResponseException, ResourceAccessException {
-        // place code here
-        return false;
+        boolean isTrue = false;
+        try {
+            restTemplate.delete(API_URL + "/" + id);
+            isTrue = true;
+        }catch (RestClientResponseException | ResourceAccessException ex){
+        }
+        return isTrue;
     }
 
     private HttpEntity<Auction> makeEntity(Auction auction) {

@@ -11,3 +11,4 @@ public class AuctionNotFoundException extends Exception {
         super("Auction Not Found");
     }
 }
+

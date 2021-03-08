@@ -12,7 +12,7 @@ public interface CityDAO {
 
 	public List<City> findCityByDistrict(String district);
 
-	public void update(City city);
+	public City update(City city);
 
 	public void delete(long id);
 }

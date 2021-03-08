@@ -88,4 +88,12 @@ public class MemoryReservationDAO implements ReservationDAO {
         return getMaxID() + 1;
     }
 
+/*
+    get reservation by id
+    path: /reservation/{id}
+    request method: GET
+    return: reservation info for given id using path variable
+     */
+
+
 }
