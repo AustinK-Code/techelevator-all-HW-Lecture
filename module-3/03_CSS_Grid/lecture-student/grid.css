@@ -1,0 +1,41 @@
+div.container{
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-areas:
+    "header header header"
+    "nav menu events"
+    "bottom bottom bottom";
+    height: 100vh;
+    gap: 10px;
+}
+
+div.container header{
+    grid-area: header;
+}
+
+#menu-nav{
+    grid-area: nav;
+}
+
+main{
+    grid-area: menu;
+}
+
+#upcoming-events{
+    grid-area: events;
+}
+
+footer{
+    grid-area: bottom;
+}
+@media screen and (max-width:768px){
+    div.container{
+        grid-template-areas:
+        "header"
+        "nav"
+        "menu"
+        "events"
+        "bottom" ;
+        grid-template-columns: 1fr;
+    }
+}

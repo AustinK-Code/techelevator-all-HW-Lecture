@@ -1,0 +1,94 @@
+main#main-grid{
+    display: grid;
+    columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 50px;
+    grid-template-areas: 
+    "header header student-pic"
+    "quote quote student-pic"
+    "profile profile contact"
+    "experience experience experience";
+    align-items: center;
+    }
+    h1#headline{
+    grid-area: header;
+    }
+    div#student-picture{
+    grid-area: student-pic;
+    text-align:center;
+    }
+    div#student-quote{
+    grid-area: quote
+    }
+    div#student-profile{
+    grid-area: profile
+    }
+    div#student-contact{
+    grid-area: contact;
+    text-align: center;
+    }
+    div#experience-grid{
+    grid-area: experience;
+    display: grid;
+    columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 50px;
+    grid-template-areas:
+    "experience-code experience-code"
+    "experience-database experience-database"
+    "experience-web experience-design";
+    }
+        div#experience-code{
+        grid-area: experience-code;
+        }
+        div#experience-database{
+        grid-area: experience-database;
+        }
+        div#experience-web{
+        grid-area: experience-web;
+        }
+        div#experience-design{
+        grid-area: experience-design;
+        }
+@media screen and (max-width:1024px){
+    main#main-grid{
+        column-gap: 35px;
+        columns: 1fr 1fr;
+        grid-template-areas:
+        "header header"
+        "quote student-pic"
+        "quote contact"
+        "profile profile"
+        "experience experience";
+    }
+    div#experience-grid{
+        column-gap: 20px;
+        row-gap: 20px;
+        grid-template-areas:
+        "experience-code experience-database"
+        "experience-web experience-design";
+    }
+}
+@media screen and (max-width:450px){
+    main#main-grid{
+        columns:1fr;
+        grid-template-areas:
+        "header"
+        "student-pic"
+        "contact"
+        "quote"
+        "profile"
+        "experience"
+        "experience"
+        "experience"
+        "experience";
+    }
+    div#experience-grid{
+        columns: 1fr;
+        grid-template-areas: 
+        "experience-code"
+        "experience-web"
+        "experience-database"
+        "experience-design";
+    }
+}
