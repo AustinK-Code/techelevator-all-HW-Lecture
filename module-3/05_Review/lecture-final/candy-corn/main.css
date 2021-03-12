@@ -113,13 +113,17 @@
     border: 2px dotted red;
   }
   @media only screen and (max-width: 768px){
-    ul {
-      
+    ul {      
       flex-direction: column;
+      
     }
-    nav {
-      display: flex;
-      flex-direction: row;
+    nav ul li {
+      list-style: none;
+      background-color: var(--orange);
+      line-height: 20px;
+      width: 50%;
+      border-radius: 5px;
+      text-align: center;
     }
 
 
