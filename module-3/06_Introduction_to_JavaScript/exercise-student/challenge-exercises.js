@@ -11,7 +11,20 @@
 		iqTest("") → 0 // there are no numbers in the given set
         iqTest("2 2 4 6") → 0 // all numbers are even, therefore there is no position of an odd number
 */
-
+    function iqTest(x){
+        let result = 0
+        let toArr = x.split(" ")
+        let oddArr = toArr.filter(Number => Number % 2 == 1)
+        let evenArr = toArr.filter(Number => Number % 2 == 0)
+        if (evenArr.length == 1 && oddArr.length > 0){
+            num = evenArr[0]
+            result = toArr.indexOf(num)+1
+        }
+        if (oddArr.length == 1 && evenArr.length >0){
+            num = oddArr[0]
+            result = toArr.indexOf(num)+1
+        }
+        return result}
 /*
 2. **titleCase** Write a function that will convert a string into title case, given an optional 
     list of exceptions (minor words). The list of minor words will be given as a string with each 
@@ -28,3 +41,24 @@ argument is unused.
 		titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
         titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 */
+        function capitalize(word){
+            let lowerEnd = word.substring(1).toLowerCase()
+            let firstCap = word.charAt(0).toUpperCase() 
+            return firstCap+lowerEnd
+        }
+        function titleCase(original, delimiters){
+        let ogArr = original.split(" ")
+        if (delimiters){
+        let delimitersArr = delimiters.split(" ")
+        }
+        capitalize(orArr[0])
+        for(val of ogArr){
+            for(word of delimiters){
+                if(val == word){
+                    val = word
+                }
+                else capitalize(word)
+            }
+        }
+        return ogArr
+        }

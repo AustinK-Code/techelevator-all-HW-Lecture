@@ -23,3 +23,13 @@ body {
 .even {
 	background-color: #44accf;
 }
+.container{
+	display: flex;
+	width: 50vw;
+	flex-direction: row;
+	justify-content: right;
+	
+}
+
+
+

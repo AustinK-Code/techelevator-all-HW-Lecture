@@ -10,8 +10,14 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+  const daysInWeek = 7;
+  console.log(daysInWeek);
   // Declares a variable those value can be changed
+  let daysInMonth=31;
+  console.log(`Number of days this month ${daysInMonth}`);
   // Declares a variable that will always be an array
+  let daysOfTheWeek = ['Monday','Tuesday'];
+
 }
 
 /**
