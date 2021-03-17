@@ -41,24 +41,61 @@ argument is unused.
 		titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
         titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 */
+
+        /*function titleCase(original, delimiters){     WHY DOESN'T THIS WOOOOOOOORRKKKK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        let ogArr = original.split(" ")
+        let delimitersArr = []
+        let resultArr = []
+        if (delimiters){
+        delimitersArr = delimiters.split(" ")
+        }
+        ogArr[0] = capitalize(ogArr[0])
+        resultArr.push(ogArr[0])
+        for(let i = 1; i < ogArr.length; i++){
+            let found = false
+            let delimit = ""
+            if(delimiters){
+                for(let x = 0; x < delimitersArr.length; x++){
+                    if(ogArr[i].toUpperCase === delimitersArr[x].toUpperCase){
+                        found = true
+                        console.log(ogArr[i])
+                        delimit = delimitersArr[x]
+                    }
+                }
+            }
+            if (found == true){
+                resultArr.push(delimit)
+            }
+            else resultArr.push[capitalize(ogArr[i])]
+        }
+        return resultArr
+        }*/
+
+
+        //Taking the easy way out. I am weak.
+        function titleCase(original, delimiters){
+            let ogArr = original.split(" ")
+            let outputArr = []
+
+            for(let i = 0; i < ogArr.length; i++){
+                outputArr.push(capitalize(ogArr[i]))
+            }
+
+            if(delimiters){
+                let delimArr = delimiters.split(" ")
+                for (let index = 0; index < delimArr.length; index++ ){
+                    let delimWord = capitalize(delimArr[index])
+                    if(outputArr.includes(delimWord,1)){
+                        let indexOfWord = outputArr.indexOf(delimWord,1)
+                        outputArr[indexOfWord] = delimWord.toLowerCase()
+                    }
+                }
+            }
+            console.log(outputArr)
+            return outputArr.join(" ")
+        }
         function capitalize(word){
             let lowerEnd = word.substring(1).toLowerCase()
             let firstCap = word.charAt(0).toUpperCase() 
             return firstCap+lowerEnd
-        }
-        function titleCase(original, delimiters){
-        let ogArr = original.split(" ")
-        if (delimiters){
-        let delimitersArr = delimiters.split(" ")
-        }
-        capitalize(orArr[0])
-        for(val of ogArr){
-            for(word of delimiters){
-                if(val == word){
-                    val = word
-                }
-                else capitalize(word)
-            }
-        }
-        return ogArr
         }
