@@ -3,22 +3,22 @@
 In this exercise, you'll build a shopping list from data. You'll find all of the code you need to get started in the folder `shopping-list`.
 
 ## Exercise
-
+--------------------------------------------------------------------------------------
 The first thing you need to do is open up `js/shopping-list.js` and create two variables named `pageTitle` and `groceries`:
 
     * pageTitle: {string} This should be set to 'My Shopping List'
     * groceries: {Array} This should be an array of 10 items for your shopping list. The items in the array can be strings.
 
 ### Page Title
-
+----------------------------------------------------------------------------------------
 When the application loads, the `setPageTitle()` function is called. It is your job to fill in that function and make it work. You should take the contents of the `pageTitle` variable and update the DOM.
 
 ### Groceries
-
+----------------------------------------------------------------------------------------
 When the application loads, the `displayGroceries()` function is called. It is your job to fill in that function and make it work. You should take the array of groceries, create a new list item element, and append it to the unordered list on the page.
 
 ### Completed
-
+----------------------------------------------------------------------------------
 When the application loads, there's an event listener attached to the button. Don't worry too much about how this works, as you'll learn more about that in a future lesson.
 
 When you click the button, it calls the method `markCompleted()`. It is your job to make that method work. You should be able to get **all** of the list items on the page and add the class `.completed` to each one.
