@@ -10,7 +10,7 @@ const groceries = [
   { id: 7, name: 'Grapes', completed: false },
   { id: 8, name: 'Steak', completed: false },
   { id: 9, name: 'Salad', completed: false },
-  { id: 10, name: 'Tea', completed: false }
+  { id: 10, name: 'Tea', completed: false },
 ];
 
 /**
@@ -37,5 +37,52 @@ function displayGroceries() {
   });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
 setPageTitle();
 displayGroceries();
+clickLogic()
+allItemsButton()
+})
+
+function markComplete(){
+const pushButtonArr = document.querySelectorAll('ul li')
+  pushButtonArr.forEach(pushButton => {pushButton.addEventListener('click',(event)=>
+    {pushButton.classList.add('completed'),
+    pushButton.firstElementChild.classList.add('completed')}
+)})}
+
+function markIncomplete(){//not working with dblclick single click works though when using logic to filter to it
+  const pushButtonArr = document.querySelectorAll('ul li')
+    pushButtonArr.forEach(pushButton => {pushButton.addEventListener('click',(event)=>
+      {pushButton.classList.remove('completed')
+      pushButton.firstElementChild.classList.remove('completed')}
+  )})}
+
+function clickLogic(){
+  const pushButtonArr = document.querySelectorAll('ul li')
+  pushButtonArr.forEach(pushButton => {pushButton.addEventListener('mouseover',(event)=>{
+    if(pushButton.classList.contains('completed')){
+      markIncomplete()
+    }
+    else markComplete()
+  })})
+}
+
+function allItemsButton(){
+  const allButton = document.getElementById('toggleAll')
+  const pushButtonArr = document.querySelectorAll('ul li')
+  allButton.addEventListener('click',(event) =>{
+    //marking incomplete
+    if(allItemsIncomplete == false){
+      location.reload()
+    }
+    //marking complete
+    if(allItemsIncomplete == true){
+  pushButtonArr.forEach(pushButton => 
+    {pushButton.classList.add('completed'),
+    pushButton.firstElementChild.classList.add('completed')
+    allButton.innerText = 'Mark All Incomplete'
+    allItemsIncomplete = false})
+  }
+})}
+
