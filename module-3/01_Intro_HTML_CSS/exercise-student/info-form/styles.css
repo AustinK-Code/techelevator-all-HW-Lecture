@@ -1,0 +1,12 @@
+main{
+    background-color: rgba(165, 164, 164, 0.644);
+    margin-right: 1400px;
+}
+body{
+    margin-left: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+form{
+    line-height: 2;
+}

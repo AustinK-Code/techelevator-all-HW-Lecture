@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy sign up</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Registration Form</h1>
+        <p>Register for free candy!</p>
+    </header>
+
+</body>
+<main>
+    <form method="POST" action="/api/identityTheft">
+        <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+        </div>
+        <div>
+            <label for="Email">Email</label>
+            <input id="Email" name="Email" type="email" required>
+        </div>
+        <div>
+            <label for="Birthday">Birthday</label>
+            <input id="Birthday" name="Birthday" type="date">
+        </div>
+        <div>
+            <label for="Favorite color">Favorite color</label>
+            <input id="Favorite color" name="Favorite color" type="color">
+        </div>
+        <div>
+            <label for="Favorite number">Favorite number</label>
+            <input id="Favorite number" name="Favorite number" type="number">
+        </div>
+        <div>
+            <label for="ssNumber">Social Security Number</label>
+            <input id="ssNumber" name="ssNumber" type="number">
+        </div>
+        <div>
+            <label for="confirm">Confirm data is correct</label>
+            <input id="confirm" name="confirm" type="checkbox">
+        </div>
+
+        <div>
+            <input type="submit">
+        </div>
+
+
+    </form>
+</main>
+
+</html>

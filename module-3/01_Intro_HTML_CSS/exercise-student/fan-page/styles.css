@@ -1,0 +1,34 @@
+
+img {
+    height: 275px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image:url("images/615n86gK9SL._AC_SX522_.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+header{
+    background-color: rgba(255, 255, 255, 0.623);
+    text-align: center;
+
+}
+section{
+    background-color: rgba(255 , 255, 255, 0.623);
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+table,th,td{
+    border: 1px solid black;
+}
+h1,h2,h3{
+    text-decoration: underline;
+}
+h1{
+    font-size: 75px;
+}
