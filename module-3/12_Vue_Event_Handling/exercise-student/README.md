@@ -31,7 +31,7 @@ Below that list are the details of why each test failed. The numbers in the list
 ![Test failure details](./img/test-failure-details.png)
 
 ## Step Three: Add a new user form
-
+-------------------got this working------------------------
 The markup for the new user form is already in the template. Complete the following tasks:
 
 - The form should be hidden by default.
@@ -45,13 +45,13 @@ The markup for the new user form is already in the template. Complete the follow
 > Once you complete this step, the three tests under "Add new user form" pass.
 
 ## Step Four: Add an enable/disable button in action column
-
+---------this wont fucking work-----------------
 In the "Action" column of the table, there's a button that enables or disables the user. Complete the following tasks:
 
-- If the user status = 'Active', the button text displays 'Disable.'
-- If the user status = 'Disabled', the button text displays 'Enable.'
+------- If the user status = 'Active', the button text displays 'Disable.'
+------- If the user status = 'Disabled', the button text displays 'Enable.'
 - When you click the button, it calls a method `flipStatus()` and change the user's status from 'Active' to 'Disabled', or 'Disabled' to 'Active.'
-  - The `flipStatus(id)` method takes the user ID as an argument.
+  ----- The `flipStatus(id)` method takes the user ID as an argument.
   - You can use the user ID to find the user in the users array and change their status.
 
 > Once you complete this step, the three tests under "Single Row Enable / Disable Action" pass.
@@ -63,6 +63,7 @@ There are three buttons below the user listing table. Complete the following tas
 - Add a `selectedUserIDs` property that defaults to an empty array.
 - When the `selectedUserIDs` array is empty, the buttons should be disabled.
   - Note: use a computed property named `actionButtonDisabled` for this.
+  --------------got to here and gave up for the night-------------
 - When the checkbox for a row is checked, add the user's ID to the `selectedUserIDs` array.
   - Bind the checked value to if the user's ID is in the `selectedUserIDs` array.
 - Enable Users
