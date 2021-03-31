@@ -5,7 +5,7 @@ In this exercise, you'll take an existing component and turn it into a group of 
 > Before you begin the exercise, run `npm install` to install any dependencies.
 
 ## Step One: Show reading list
-
+---------------------------------------------------------------------
 First, take the following state and put it into the Vuex datastore located in `src/store/index.js`:
 
 ``` JSON
@@ -53,7 +53,7 @@ You may notice that the Book Review page contains simply a title and four empty 
 All tests under "Step One Tests" now pass.
 
 ## Step Two: Display book details
-
+-------------------------------------------------------
 Set up the `BookCard` to have a prop that takes a book and shows the details of that book in its UI: title, cover image, and author. The UI must use the provided classes in the CSS for the tests to work correctly:
 |  | |
 |------|--------|
@@ -71,8 +71,8 @@ Once you complete this step, all the tests under "Step Two Tests" pass.
 ![Book Card is filled out](etc/book-card-complete.png)
 
 ## Step Three: Add a read/unread toggle button
-
-Add a new control to the `BookCard` that's a button to toggle the read and unread status of a book. The button must indicate what clicking the button sets the status to. All books with a read status must have the `read` class added to the card.
+------------------------------------------------------
+------Add a new control to the `BookCard` that's a button to toggle the read and unread status of a book. The button must indicate what clicking the button sets the status to. All books with a read status must have the `read` class added to the card.
 
 Remember that the read status must be set through a mutation, not set directly from the `BookCard` component.
 
