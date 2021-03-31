@@ -22,7 +22,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'board-column',

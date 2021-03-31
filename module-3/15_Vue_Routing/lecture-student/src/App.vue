@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <router-vue />
+  </div>
 </template>
 
 <script>
