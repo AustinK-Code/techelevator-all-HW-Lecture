@@ -24,6 +24,10 @@ export default {
   methods: {
     updateTopic() {
       const topic = { id: this.topicID, title: this.title };
+      topicService.update(topic,topic.id).then((response) =>{
+          alert("Topic updated successfully")
+          this.$router.push("/")
+      })
       // call topic service update method
     }
   },

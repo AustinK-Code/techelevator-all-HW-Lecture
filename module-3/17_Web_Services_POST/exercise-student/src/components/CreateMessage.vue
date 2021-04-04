@@ -32,7 +32,11 @@ export default {
   },
   methods: {
     saveMessage() {
-
+      messageService.create(this.message).then((response) => {
+        alert("Message posted successfully")
+        this.$router.push(`/${this.message.topicId}`)
+        }
+      )
     }
   }
 };
